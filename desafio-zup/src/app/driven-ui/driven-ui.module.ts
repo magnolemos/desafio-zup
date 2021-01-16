@@ -4,6 +4,7 @@ import { AppRootComponent } from './app-root/app-root.component';
 
 @NgModule({
   declarations: [AppRootComponent],
+  exports: [AppRootComponent],
   imports: [
     CommonModule
   ]
