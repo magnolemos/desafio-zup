@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "desafio-zup"
+  "defaultProject": "desafio-zup",
+  "cli": {
+    "analytics": "9e28f75e-92cf-40f2-9e7a-906242c4bfa6"
+  }
 }
