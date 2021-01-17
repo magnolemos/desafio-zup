@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, ComponentRef, Input, QueryList, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, ComponentRef, Input, OnInit, QueryList, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
 
-import { DynamicSelectorComponent, Properties } from '../dynamic-selector/dynamic-selector.component';
+import { DynamicSelectorComponent } from '../dynamic-selector/dynamic-selector.component';
 import { DynamicComponentService } from '../services/dynamic-component.service';
 
 export interface DynamicContentProperties { [k: string]: any; };
@@ -10,23 +10,14 @@ export interface DynamicContentProperties { [k: string]: any; };
   templateUrl: './app-root.component.html',
   styleUrls: ['./app-root.component.css']
 })
-export class AppRootComponent implements AfterViewInit {
+export class AppRootComponent implements AfterViewInit, OnInit {
 
-  components = [
-    { type: 'app-card', description: 'card com filhos', url: "https://www.petlove.com.br/images/breeds/193436/profile/original/beagle-p.jpg",
-      value: "1111111",
-      children: [
-          { type: 'app-button', description: 'input' },
-          { type: 'app-text', description: 'input2'}
-        ]
-    },
-    { type: 'app-dynamic1', description: 'input'}
-  ]
+  components!: Array<Object>;
 
   @Input() layout: any;
 
   @ViewChildren('viewRef', {read: DynamicSelectorComponent})
-    public viewRefs!: QueryList<DynamicSelectorComponent>;
+  viewRefs!: QueryList<DynamicSelectorComponent>;
 
 
   @ViewChild("container", { read: ViewContainerRef, static: true })
@@ -35,25 +26,38 @@ export class AppRootComponent implements AfterViewInit {
   showComponent = false;
   
   constructor(private componentService: DynamicComponentService) {}
+  ngOnInit(): void {
+    this.components = [this.layout]
+  }
 
-  // verificar a mudanca na view, se tiver filhos add os filhos tb
   ngAfterViewInit() {
     this.viewRefs.changes.subscribe((list: QueryList<DynamicSelectorComponent>) => {
       list.forEach((viewRef: DynamicSelectorComponent, index: number) => {
-
-        // verifica os inputs passado como propriedade, se tiver children add eles
         viewRef.properties.children?.map((property: DynamicContentProperties) => {
-        
           this.componentService
           .getComponentBySelector(property?.type, () => import("../components/components.module").then(m => m.ComponentsModule))
-          .then(componentRef => {
-            viewRef.component.instance.containerComponent.insert(componentRef.hostView) 
-            this.addComponentProperties(componentRef,property)
-          });
-
+            .then(componentRef => {
+              viewRef.component.instance.containerComponent.insert(componentRef.hostView) 
+              this.addComponentProperties(componentRef,property);
+              if (componentRef.instance?.children) this.renderChildren(componentRef.instance?.children, componentRef)
+            });
         });
       });
-  });
+    });
+  }
+
+  renderChildren(children: Array<DynamicContentProperties>, parentComponentRef: ComponentRef<any> | DynamicSelectorComponent) {
+    children?.map((child: DynamicContentProperties) => {
+      this.componentService
+    .getComponentBySelector(child?.type, () => import("../components/components.module").then(m => m.ComponentsModule))
+      .then(componentRefChild => {
+        (<any>parentComponentRef).instance?.containerComponent.insert(componentRefChild.hostView) 
+        this.addComponentProperties(componentRefChild,child);
+        if(componentRefChild?.instance?.children) {
+          this.renderChildren(componentRefChild?.instance?.children, componentRefChild)
+        }
+      });
+    });
   }
 
   getModuleLoader() {

@@ -1,27 +1,38 @@
 {
-    "type":"container",
+    "type":"app-container",
     "children":[
        {
-          "type":"card",
+          "type":"app-card",
           "children":[
              {
-                "type":"image",
+                "type":"app-image",
                 "url":"https://www.petlove.com.br/images/breeds/193436/profile/original/beagle-p.jpg",
-                "description":"Minha imagem"
+                "description":"Minha imagem",
+                "children":[
+                  {
+                     "type":"app-image",
+                     "url":"https://www.petlove.com.br/images/breeds/193436/profile/original/beagle-p.jpg",
+                     "description":"Minha imagem"
+                  },
+                  {
+                     "type":"app-image",
+                     "value":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices elit sed est fringilla tincidunt. Nunc sit amet od"
+                  }
+               ]
              },
              {
-                "type":"text",
+                "type":"app-text",
                 "value":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices elit sed est fringilla tincidunt. Nunc sit amet od"
              }
           ]
        },
        {
-          "type":"input",
+          "type":"app-input",
           "value":"18",
           "id":"age"
        },
        {
-          "type":"button",
+          "type":"app-button",
           "value":"Submit"
        }
     ]

@@ -1,6 +1,7 @@
 import { ComponentRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewContainerRef } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
+
 import { DynamicComponentService } from '../services/dynamic-component.service';
 
 export interface Properties { [k: string]: any; };
@@ -43,7 +44,6 @@ export class DynamicSelectorComponent implements OnDestroy, OnChanges {
 
     this.component = await this.componentService.getComponentBySelector(this.type, this.moduleLoaderFunction);
     this.container.insert(this.component.hostView); 
-  
   }
 
   private setComponentInputs() {

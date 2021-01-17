@@ -1,14 +1,5 @@
-import {
-  ComponentFactory,
-  Injectable,
-  Injector,
-  NgModuleFactory,
-  Compiler,
-  ComponentRef
-} from "@angular/core";
+import { ComponentFactory, Injectable, Injector, NgModuleFactory, Compiler, ComponentRef } from "@angular/core";
 import { BaseModule } from '../components/base-module';
-
-
 
 @Injectable({
   providedIn: "root"
@@ -16,7 +7,7 @@ import { BaseModule } from '../components/base-module';
 export class DynamicComponentService {
   constructor(private injector: Injector) {}
 
-  getComponentBySelector(type: string, moduleLoaderFunction: () => Promise<any>): Promise<ComponentRef<unknown>> {
+  getComponentBySelector(type: string, moduleLoaderFunction: () => Promise<any>): Promise<ComponentRef<any>> {
     return this.getModuleFactory(moduleLoaderFunction).then(moduleFactory => {
       const module = moduleFactory.create(this.injector);
       if (module.instance instanceof BaseModule) {
@@ -37,7 +28,6 @@ export class DynamicComponentService {
     const ngModuleOrNgModuleFactory = await moduleLoaderFunction();
     let moduleFactory;
     if (ngModuleOrNgModuleFactory instanceof NgModuleFactory) {
-      // AOT at runtime
       moduleFactory = ngModuleOrNgModuleFactory;
     } else {
       moduleFactory = await this.injector
