@@ -23,8 +23,8 @@ export class DynamicComponentService {
         let compFactory: ComponentFactory<any> = module.instance.getComponentFactory(type);
         if (!compFactory) {
           // TODO passar um component de erro
-          alert("Não existe  o component " + type )
-           compFactory = module.instance.getComponentFactory('app-card');
+          console.log("Não existe  o component " + type )
+           compFactory = module.instance.getComponentFactory('app-erro');
         }
         return compFactory.create(module.injector, [], null, module);
       } else {
