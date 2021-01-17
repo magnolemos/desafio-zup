@@ -19,7 +19,6 @@ export class AppRootComponent implements AfterViewInit, OnInit {
   @ViewChildren('viewRef', {read: DynamicSelectorComponent})
   viewRefs!: QueryList<DynamicSelectorComponent>;
 
-
   @ViewChild("container", { read: ViewContainerRef, static: true })
   container!: ViewContainerRef;
 
