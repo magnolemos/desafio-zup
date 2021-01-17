@@ -26,11 +26,11 @@ export class AppRootComponent implements AfterViewInit {
   @Input() layout: any;
 
   @ViewChildren('viewRef', {read: DynamicSelectorComponent})
-    public viewRefs: QueryList<DynamicSelectorComponent>;
+    public viewRefs!: QueryList<DynamicSelectorComponent>;
 
 
   @ViewChild("container", { read: ViewContainerRef, static: true })
-  container: ViewContainerRef;
+  container!: ViewContainerRef;
 
   showComponent = false;
   
@@ -42,7 +42,7 @@ export class AppRootComponent implements AfterViewInit {
       list.forEach((viewRef: DynamicSelectorComponent, index: number) => {
 
         // verifica os inputs passado como propriedade, se tiver children add eles
-        viewRef.properties.children?.map(property => {
+        viewRef.properties.children?.map((property: DynamicContentProperties) => {
         
           this.componentService
           .getComponentBySelector(property?.type, () => import("../components/components.module").then(m => m.ComponentsModule))
@@ -61,7 +61,7 @@ export class AppRootComponent implements AfterViewInit {
     import("../components/components.module").then(m => m.ComponentsModule);
   }
 
-  addComponentProperties(componentRef: ComponentRef<unknown>, properties: DynamicContentProperties) {
+  addComponentProperties(componentRef: ComponentRef<any>, properties: DynamicContentProperties) {
     if (componentRef && componentRef.instance && properties) {
       Object.keys(properties).forEach(p => (componentRef.instance[p] = properties[p]));
     }

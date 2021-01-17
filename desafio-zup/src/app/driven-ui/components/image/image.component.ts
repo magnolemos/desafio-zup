@@ -7,8 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ImageComponent implements OnInit {
 
-  @Input() url: string;
-  @Input() description: string;
+  @Input() url!: string;
+  @Input() description!: string;
   
   constructor() { }
 

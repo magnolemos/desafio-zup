@@ -15,13 +15,13 @@ export interface Properties { [k: string]: any; };
 })
 export class DynamicSelectorComponent implements OnDestroy, OnChanges {
   @ViewChild('componentContainer', { read: ViewContainerRef, static: true })
-  container: ViewContainerRef;
+  container!: ViewContainerRef;
 
-  @Input() type: string;
-  @Input() moduleLoaderFunction;
-  @Input() properties: Properties;
+  @Input() type!: string;
+  @Input() moduleLoaderFunction!: any;
+  @Input() properties!: Properties;
 
-  public component: ComponentRef<any>;
+  public component!: ComponentRef<any>;
 
   constructor(private componentService: DynamicComponentService) { }
 
@@ -55,7 +55,7 @@ export class DynamicSelectorComponent implements OnDestroy, OnChanges {
   private destroyComponentInstance() {
     if (this.component) {
       this.component.destroy();
-      this.component = null;
+      this.component = null as any;
     }
   }
 }

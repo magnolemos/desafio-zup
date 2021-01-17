@@ -5,7 +5,7 @@ import {
 } from "@angular/core";
 
 export abstract class BaseModule {
-  private selectorToFactoryMap: { [key: string]: ComponentFactory<any> } = null;
+  private selectorToFactoryMap!: { [key: string]: ComponentFactory<any> };
   protected abstract dynamicComponents: Type<any>[];
 
   constructor(protected componentFactoryResolver: ComponentFactoryResolver) { }

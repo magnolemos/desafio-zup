@@ -9,7 +9,7 @@ import { BaseComponent } from '../base/base.component';
 })
 export class ButtonComponent extends BaseComponent implements OnInit {
  
-  @Input() url: string;
+  @Input() url!: string;
 
   constructor() { 
     super()

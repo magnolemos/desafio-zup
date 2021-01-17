@@ -7,9 +7,9 @@ import { Component, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/
 })
 export class BaseComponent implements OnInit {
   @ViewChild('containerComponent', { read: ViewContainerRef, static: true })
-  containerComponent: ViewContainerRef;
+  containerComponent!: ViewContainerRef;
 
-  @Input() children: Array<string>;
+  @Input() children!: Array<string>;
 
   constructor() { }
 
