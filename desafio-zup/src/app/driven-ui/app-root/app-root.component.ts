@@ -9,9 +9,10 @@ export class AppRootComponent implements OnInit {
 
   constructor() { }
   
-  // @Input() layout: Object
+  @Input() layout: Object
 
   ngOnInit(): void {
+    console.log(this.layout)
   }
 
 }

@@ -1,1 +1,5 @@
-<app-app-root></app-app-root>
+<app-app-root *ngIf="layout; else loading" [layout]="layout"></app-app-root>
+
+<ng-template #loading>
+    <div>loading...</div>
+</ng-template>
