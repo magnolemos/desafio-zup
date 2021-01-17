@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { AppRootComponent } from './app-root/app-root.component';
-import { CardComponent } from './components/card/card.component';
-import { ImageComponent } from './components/image/image.component';
-import { InputComponent } from './components/input/input.component';
-import { ButtonComponent } from './components/button/button.component';
-import { TextComponent } from './components/text/text.component';
+import { DynamicSelectorComponent } from './dynamic-selector/dynamic-selector.component';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
-  declarations: [AppRootComponent, CardComponent, ImageComponent, InputComponent, ButtonComponent, TextComponent],
+  declarations: [AppRootComponent, DynamicSelectorComponent],
   exports: [AppRootComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    ComponentsModule
   ]
 })
-export class DrivenUiModule { }
+export class DrivenUiModule  {
+}

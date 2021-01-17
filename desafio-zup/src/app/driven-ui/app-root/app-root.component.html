@@ -1,2 +1,18 @@
-<p>app-root works!</p>
-<!-- {{ layout | json }} -->
+
+<button (click)="showComponent = true">Mostar os components</button>
+
+<ng-container *ngFor="let component of components">
+	<app-dynamic-selector *ngIf="showComponent"  #viewRef
+	[properties]="component"
+	[type]="component.type"
+	[moduleLoaderFunction]="getModuleLoader()"
+	>
+	</app-dynamic-selector>
+</ng-container >
+
+
+
+
+
+
+
