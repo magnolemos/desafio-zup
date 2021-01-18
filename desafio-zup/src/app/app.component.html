@@ -1,5 +1,11 @@
-<app-app-root *ngIf="layout; else loading" [layout]="layout"></app-app-root>
+<ng-container *ngIf="!hasErro; else error">
+    <app-app-root *ngIf="layout; else loading" [layout]="layout"></app-app-root>
 
-<ng-template #loading>
-    <div>loading...</div>
+    <ng-template #loading>
+        <div>loading...</div>
+    </ng-template>
+</ng-container>
+
+<ng-template #error>
+    <div> Ocorreu um erro para renderizar, tente novamente mais tarde....</div>
 </ng-template>
