@@ -12,7 +12,7 @@ export interface DynamicContentProperties { [k: string]: any; };
 })
 export class AppRootComponent implements AfterViewInit, OnInit {
 
-  components!: Array<Object>;
+  components!: Array<any>;
 
   @Input() layout: any;
 
@@ -26,10 +26,11 @@ export class AppRootComponent implements AfterViewInit, OnInit {
   
   constructor(private componentService: DynamicComponentService) {}
   ngOnInit(): void {
-    this.components = [this.layout]
+    this.components = [this.layout];
   }
 
   ngAfterViewInit() {
+    this.showComponent = true;
     this.viewRefs.changes.subscribe((list: QueryList<DynamicSelectorComponent>) => {
       list.forEach((viewRef: DynamicSelectorComponent, index: number) => {
         viewRef.properties.children?.map((property: DynamicContentProperties) => {
