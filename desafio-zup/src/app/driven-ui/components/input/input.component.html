@@ -1,2 +1,9 @@
-<input [id]="id" type="text" [placeholder]="value" [style]="style">
+
+<div class="wrapper">
+    <label class="label" [for]="id"> {{label}} </label>
+    <div class="input" [style]="style">
+        <input [id]="id" type="text" [placeholder]="value" >
+    </div>    
+</div>
+
 <ng-container #containerComponent></ng-container>

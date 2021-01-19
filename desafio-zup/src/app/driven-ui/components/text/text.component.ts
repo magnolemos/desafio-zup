@@ -8,7 +8,7 @@ import { BaseComponent } from '../base/base.component';
 })
 export class TextComponent extends BaseComponent implements OnInit {
 
-  @Input() value: string = 'default';
+  @Input() value!: string;
   
   constructor() {
     super()

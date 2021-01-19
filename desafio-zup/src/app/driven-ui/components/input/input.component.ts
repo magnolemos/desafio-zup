@@ -9,6 +9,7 @@ import { BaseComponent } from '../base/base.component';
 export class InputComponent extends BaseComponent implements OnInit {
 
   @Input() value: string = 'defaul';
+  @Input() label: string = 'defaul';
   @Input() id: string = 'default';
 
   constructor() { 

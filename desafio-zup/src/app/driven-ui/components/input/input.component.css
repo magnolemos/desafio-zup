@@ -1,0 +1,25 @@
+.wrapper {
+    margin: 8px 0px;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0px;
+    line-height: 24px;
+    color: #757575;
+}
+
+.input {
+    margin-top: 4px;
+    width: 310px;
+    background-color: #f5f6fa;
+    border-radius: 4px;
+}
+
+.input input {
+    background-color: transparent;
+    border: none;
+    padding: 15px;
+    width: 80%;
+}
