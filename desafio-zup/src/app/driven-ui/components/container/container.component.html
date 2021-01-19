@@ -1,4 +1,6 @@
-<div class="container" [style]="style">
+<div class="container" 
+    [ngClass]="'desktop__columns-' + desktopColumns + ' '  +  'mobile_columns-' + mobileColumns" 
+    [style]="style">
     <ng-container #containerComponent></ng-container>
 </div>
 
