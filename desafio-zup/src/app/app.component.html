@@ -1,6 +1,5 @@
 <ng-container *ngIf="!hasErro; else error">
-    <app-app-root *ngIf="layout; else loading" [layout]="layout"></app-app-root>
-
+     <app-app-root *ngIf="layout; else loading" [layout]="layout"></app-app-root>
     <ng-template #loading>
         <div>loading...</div>
     </ng-template>

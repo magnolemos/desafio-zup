@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DrivenUiModule } from './driven-ui/driven-ui.module';
 import { HttpClientModule } from '@angular/common/http';
+import { DrivenUiModule } from 'projects/driven-ui/src/public-api';
+// import { DrivenUiModule } from 'projects/driven-ui/src/public-api';
 
 @NgModule({
   declarations: [
@@ -13,8 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DrivenUiModule,
-    HttpClientModule
+    HttpClientModule,
+    DrivenUiModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -122,6 +122,46 @@
           }
         }
       }
+    },
+    "driven-ui": {
+      "projectType": "library",
+      "root": "projects/driven-ui",
+      "sourceRoot": "projects/driven-ui/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/driven-ui/tsconfig.lib.json",
+            "project": "projects/driven-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/driven-ui/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/driven-ui/src/test.ts",
+            "tsConfig": "projects/driven-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/driven-ui/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/driven-ui/tsconfig.lib.json",
+              "projects/driven-ui/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "desafio-zup",
