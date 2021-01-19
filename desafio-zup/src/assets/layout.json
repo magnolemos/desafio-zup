@@ -9,10 +9,6 @@
                 "type":"app-image",
                 "url":"https://lh6.googleusercontent.com/UqPQmDyNl8vniNZ-JGPfzpZQyBS-gl75yQgKEW0fpdrhccHcWXNC13uUs4D2TiXe4vhEUXELy_GvH52Qv3sXP9dLquMIrD-cYf_U3n3vhNuouOSJXuE=w1280",
                 "description":"Minha imagem"
-             },
-             {
-                "type":"app-text",
-                "value":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices elit sed est fringilla tincidunt. Nunc sit amet od"
              }
           ]
        },
@@ -21,12 +17,14 @@
          "children":[
             {
                "type":"app-input",
-               "value":"Placeholder",
+               "label": "User",
+               "value":"",
                "id":"user"
             },
             {
               "type":"app-input",
-              "value":"Placeholder",
+              "label": "Pasword",
+              "value":"",
               "id":"password"
            },
             {
