@@ -1,0 +1,15 @@
+.error {
+    padding: 20px;
+    margin: 20px;
+    background: white;
+    border-radius: 8px;
+    font-size: 14px;
+    border: 1px solid #d8d8d8;
+    color: #de2424;
+    letter-spacing: -1px; 
+}
+
+.error div {
+    text-align: center;
+    line-height: 20px;
+}
