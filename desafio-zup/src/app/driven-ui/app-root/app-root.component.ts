@@ -32,16 +32,20 @@ export class AppRootComponent implements AfterViewInit, OnInit {
   ngAfterViewInit() {
     this.showComponent = true;
     this.viewRefs.changes.subscribe((list: QueryList<DynamicSelectorComponent>) => {
-      list.forEach((viewRef: DynamicSelectorComponent, index: number) => {
-        viewRef.properties.children?.map((property: DynamicContentProperties) => {
-          this.componentService
-          .getComponentBySelector(property?.type, () => import("../components/components.module").then(m => m.ComponentsModule))
-            .then(componentRef => {
-              viewRef.component.instance.containerComponent.insert(componentRef.hostView) 
-              this.addComponentProperties(componentRef,property);
-              if (componentRef.instance?.children) this.renderChildren(componentRef.instance?.children, componentRef)
-            });
-        });
+      this.renderComponents(list)
+    });
+  }
+
+  renderComponents(list: QueryList<DynamicSelectorComponent>) {
+    list.forEach((viewRef: DynamicSelectorComponent) => {
+      viewRef.properties.children?.map((property: DynamicContentProperties) => {
+        this.componentService
+        .getComponentBySelector(property?.type, () => import("../components/components.module").then(m => m.ComponentsModule))
+          .then(componentRef => {
+            viewRef.component.instance.containerComponent.insert(componentRef.hostView) 
+            this.addComponentProperties(componentRef,property);
+            if (componentRef.instance?.children) this.renderChildren(componentRef.instance?.children, componentRef)
+          });
       });
     });
   }

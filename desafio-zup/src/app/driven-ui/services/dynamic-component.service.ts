@@ -1,4 +1,5 @@
 import { ComponentFactory, Injectable, Injector, NgModuleFactory, Compiler, ComponentRef } from "@angular/core";
+
 import { BaseModule } from '../components/base-module';
 
 @Injectable({
@@ -12,11 +13,7 @@ export class DynamicComponentService {
       const module = moduleFactory.create(this.injector);
       if (module.instance instanceof BaseModule) {
         let compFactory: ComponentFactory<any> = module.instance.getComponentFactory(type);
-        if (!compFactory) {
-          // TODO passar um component de erro
-          console.log("Não existe  o component " + type )
-           compFactory = module.instance.getComponentFactory('app-erro');
-        }
+        if (!compFactory) compFactory = module.instance.getComponentFactory('app-erro');
         return compFactory.create(module.injector, [], null, module);
       } else {
         throw new Error('Modulo deve extender do baseModule');
