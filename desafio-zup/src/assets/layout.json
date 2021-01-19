@@ -5,11 +5,11 @@
     "children":[
        {
           "type":"app-card",
-          "style" : "background: #e63312;",
+          "style" : "background: #eb6f02;",
           "children":[
              {
                 "type":"app-image",
-                "url":"https://lh6.googleusercontent.com/UqPQmDyNl8vniNZ-JGPfzpZQyBS-gl75yQgKEW0fpdrhccHcWXNC13uUs4D2TiXe4vhEUXELy_GvH52Qv3sXP9dLquMIrD-cYf_U3n3vhNuouOSJXuE=w1280",
+                "url":"https://scontent-gru2-1.xx.fbcdn.net/v/t1.0-1/p320x320/131898423_3761273277256361_2389336049480916553_n.png?_nc_cat=107&ccb=2&_nc_sid=1eb0c7&_nc_ohc=NwTowxVrVncAX-viXpA&_nc_ht=scontent-gru2-1.xx&_nc_tp=30&oh=96fdfe3d60af35116551d7c9ae2849cd&oe=602BFE71",
                 "description":"Minha imagem"
              }
           ]
