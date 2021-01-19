@@ -16,6 +16,10 @@
          "type":"app-card",
          "children":[
             {
+               "type":"app-text",
+               "value":"Acessar minha conta"
+            },
+            {
                "type":"app-input",
                "label": "User",
                "value":"",
