@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BaseComponent } from '../base/base.component';
 
 @Component({
@@ -11,7 +11,6 @@ export class CardComponent extends BaseComponent implements OnInit {
   constructor() { 
     super()
   }
-
   ngOnInit(): void {
   }
 

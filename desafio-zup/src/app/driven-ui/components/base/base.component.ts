@@ -10,6 +10,7 @@ export class BaseComponent implements OnInit {
   containerComponent!: ViewContainerRef;
 
   @Input() children!: Array<string>;
+  @Input() style!: string;
 
   constructor() { }
 
